@@ -1,4 +1,8 @@
-# teams-call-assistant
+# Stacey - Teams AI Voice Assistant
+
+- Developed an AI Voice Assistant in Teams using Azure Cognitive Services, Bot Framework and Azure OpenAI Service
+- Built a real time conversational utility capable of answering questions in voice and chat, with or without a prior provided context
+- Lead a team of four engineers through the entire process, from ideation and development to the final demo for the leadership
 
 This repository contains code for Teams Call Assistant project being pursued in Microsoft Fix Hack Learn Hackathon, September 2023.
 
