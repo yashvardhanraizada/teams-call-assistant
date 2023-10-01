@@ -7,32 +7,21 @@
       "type": "TextBlock",
       "size": "Medium",
       "weight": "Bolder",
-      "text": "Calling Bot"
+      "text": "**Stacey:** Your voice assistant"
     },
     {
       "type": "TextBlock",
-      "text": "Sample Calling Bot",
+      "text": "1. **To initiate a call:** Click on the *'Initiate call with Stacey'* button.\n2. **To discuss a document with Stacey:** Type *'SetDocumentContext:'* followed by the document link.\n3. **To discuss text/data with Stacey:** Type *'SetTextContext:'* followed by the data/context.\n4. **To discuss a meeting you were invited to:** Type *'SetMeetingContext:'* followed by the meetingId.\n5. **To delete the context:** Type *'SetDeleteContext'*",
       "wrap": true
     }
   ],
   "actions": [
     {
       "type": "Action.Submit",
-      "title": "Create Call",
+      "title": "Initiate call with Stacey",
       "id": "createcall",
       "data": {
         "action": "createcall",
-        "msteams": {
-          "type": "task/fetch"
-        }
-      }
-    },
-    {
-      "type": "Action.Submit",
-      "title": "Create Incident",
-      "id": "openincidenttask",
-      "data": {
-        "action": "openincidenttask",
         "msteams": {
           "type": "task/fetch"
         }

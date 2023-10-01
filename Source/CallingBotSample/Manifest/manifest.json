@@ -1,11 +1,11 @@
 {
   "$schema": "https://developer.microsoft.com/en-us/json-schemas/teams/v1.14/MicrosoftTeams.schema.json",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "manifestVersion": "1.14",
-  "id": "<<app-id>>",
+  "id": "b40c861a-3d70-4093-96ec-cbb12566c28f",
   "packageName": "com.acs.sample",
   "developer": {
-    "name": "Contoso",
+    "name": "The Turing Tribe",
     "websiteUrl": "https://example.azurewebsites.net",
     "privacyUrl": "https://teams.microsoft.com",
     "termsOfUseUrl": "https://teams.microsoft.com"
@@ -15,27 +15,27 @@
     "outline": "outline.png"
   },
   "name": {
-    "short": "Calling bot",
-    "full": "Calling bot"
+    "short": "Stacey",
+    "full": "Your calling assistant"
   },
   "description": {
-    "short": "Calling bot",
-    "full": "Calling bot"
+    "short": "Stacey has got the gift of gab and a knack for making conversations sizzle.",
+    "full": "Stacey has got the gift of gab and a knack for making conversations sizzle. Whether you're dialing up for help or a friendly chat, Stacey's here to bring the funk to your call."
   },
   "accentColor": "#FFFFFF",
   "bots": [
     {
-      "botId": "<<microsoft-app-id>>",
-      "scopes": ["personal", "team", "groupchat"],
+      "botId": "b40c861a-3d70-4093-96ec-cbb12566c28f",
+      "scopes": [ "personal", "team", "groupchat" ],
       "commandLists": [
         {
           "commands": [
             {
-              "title": "welcome",
-              "description": "Resend welcome card of this Bot"
+              "title": "Hi",
+              "description": "Get started by saying \"Hi\""
             }
           ],
-          "scopes": ["personal"]
+          "scopes": [ "personal" ]
         }
       ],
       "supportsFiles": false,
@@ -44,10 +44,10 @@
       "supportsVideo": true
     }
   ],
-  "permissions": ["identity", "messageTeamMembers"],
-  "validDomains": [ "<<domain-name>>" ],
+  "permissions": [ "identity", "messageTeamMembers" ],
+  "validDomains": [ "https://8a04-2404-f801-8028-1-74f9-9ee1-98c5-e15b.ngrok-free.app" ],
   "webApplicationInfo": {
-    "id": "<<microsoft-app-id>>",
+    "id": "b40c861a-3d70-4093-96ec-cbb12566c28f",
     "resource": "https://RscString"
   }
 }

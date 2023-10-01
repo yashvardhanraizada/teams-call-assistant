@@ -73,7 +73,6 @@ namespace CallingBotSample.Services.MicrosoftGraph
         Task<RecordOperation> Record(
             string id,
             MediaInfo mediaPrompt,
-            int maxRecordDurationInSeconds = 10,
             IEnumerable<string>? stopTones = null);
 
         /// <summary>

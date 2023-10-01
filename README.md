@@ -4,8 +4,6 @@ This repository contains code for Teams Call Assistant project being pursued in 
 
 Some useful links:
 
-https://microsoft.sharepoint-df.com/:w:/t/itproidc/EcEM6SN-ZO9ItERY5bEl79IBTPczp6T1qt_nLnZy_WNbSQ?e=kMjtUL
-
 https://learn.microsoft.com/en-us/microsoftteams/platform/sbs-calling-and-meeting
 
 https://learn.microsoft.com/en-us/samples/officedev/microsoft-teams-samples/officedev-microsoft-teams-samples-bot-calling-meeting-csharp/

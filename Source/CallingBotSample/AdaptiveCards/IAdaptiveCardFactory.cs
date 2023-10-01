@@ -21,6 +21,13 @@ namespace CallingBotSample.AdaptiveCards
         /// <returns>Card with people picker and incident title</returns>
         Attachment CreateIncidentCard();
 
+
+        /// <summary>
+        /// Card for creating an initiate call
+        /// </summary>
+        /// <returns>Card with people picker and call title</returns>
+        Attachment CreateInitiateCallCard();
+
         /// <summary>
         /// Create a card for showing in an incident meeting.
         /// </summary>

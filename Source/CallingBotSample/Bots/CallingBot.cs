@@ -18,7 +18,6 @@ using CallingBotSample.Utility;
 using CallingMeetingBot.Extensions;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Bot.Builder;
-using Microsoft.Bot.Schema;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Microsoft.Graph;
@@ -76,6 +75,7 @@ namespace CallingBotSample.Bots
             notificationProcessor = new NotificationProcessor(serializer);
             notificationProcessor.OnNotificationReceived += this.NotificationProcessor_OnNotificationReceived;
         }
+
 
         /// <summary>
         /// Process "/callback" notifications asynchronously.
@@ -164,8 +164,21 @@ namespace CallingBotSample.Bots
 
                 var recordingLocation = await teamsRecordingService.DownloadRecording(recording.RecordingLocation, recording.RecordingAccessToken);
 
+                var userQuery = await speechService.ConvertWavToText(recordingLocation);
+
+                // Call LLM function with user query here
+                LLMClient llmClient = new LLMClient();
+                //var responseFromLLM = await llmClient.GetSummarizedText(MessageConstants.basePrompt + MessageConstants.plainTextContext + userQuery);
+                //var responseFromLLM = "1. Use PPE like gloves, gowns, face shields, and masks. 2. Maintain hand hygiene and cover coughs and sneezes. 3. Follow CDC cleaning guidelines.";
+                //var responseFromLLM = "We are using Service Fabric to facilitate auto - renewal of certificates. Service Fabric is a distributed systems platform that enables developers and IT professionals to build, deploy, and manage scalable and reliable microservices and containers.";
+                var responseFromLLM = "RT Alerting feature was introduced to provide a more proactive way of monitoring the call quality for a particular user. This feature sends notifications whenever the call quality is bad, based on the monitoring settings and parameters for each modality.";
+                //var responseFromLLM = "The approach that was finalized for rules was to have three separate rules for each of the modalities (audio parameters, video parameters and app sharing). This was decided because the requirement was that for each modality, a different notification should be sent and the monitoring settings and parameters were different.";
+                var responseRecordingLocation = await speechService.ConvertTextToSpeech(responseFromLLM);
+
+                await callService.Record(callId, audioRecordingConstants.AskFollowUpQuestion);
+
                 // Here we are transcribing the recording and sending it as a message in the call chat.
-                try
+                /*try
                 {
                     var callDetails = callService.Get(callId);
                     var threadId = (await callDetails)?.ChatInfo?.ThreadId;
@@ -192,20 +205,20 @@ namespace CallingBotSample.Bots
                 catch (Exception ex)
                 {
                     logger.LogError(ex, "Failure converting speech to text.");
-                }
+                }*/
 
-                await callService.PlayPrompt(
-                    callId,
-                    new List<MediaInfo>
-                    {
-                        new MediaInfo {
-                            // This URL needs to be publicly accessible, so Microsoft Teams can play the audio.
-                            // In a production environment, you might want to consider a better location than
-                            // this server's content directory.
-                            Uri = new Uri(botOptions.BotBaseUrl, recordingLocation).ToString(),
-                            ResourceId = Guid.NewGuid().ToString(),
-                        }
-                    });
+                //await callService.PlayPrompt(
+                //    callId,
+                //    new List<MediaInfo>
+                //    {
+                //        new MediaInfo {
+                //            // This URL needs to be publicly accessible, so Microsoft Teams can play the audio.
+                //            // In a production environment, you might want to consider a better location than
+                //            // this server's content directory.
+                //            Uri = new Uri(botOptions.BotBaseUrl, responseRecordingLocation).ToString(),
+                //            ResourceId = Guid.NewGuid().ToString(),
+                //        }
+                //    });
             }
             // If the notification is a play prompt operation, we should check if the prompt is temporary and delete the file
             else if (args.ResourceData is PlayPromptOperation playPromptOperation)

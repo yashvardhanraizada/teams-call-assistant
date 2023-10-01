@@ -23,9 +23,16 @@ namespace CallingBotSample.Services.MicrosoftGraph
                 Uri = new Uri(botOptions.Value.BotBaseUrl, "audio/please-record-your-message.wav").ToString(),
                 ResourceId = Guid.NewGuid().ToString(),
             };
+
+            AskFollowUpQuestion = new MediaInfo
+            {
+                Uri = new Uri(botOptions.Value.BotBaseUrl, "audio/followup-message.wav").ToString(),
+                ResourceId = Guid.NewGuid().ToString(),
+            };
         }
 
         public readonly MediaInfo Speech;
         public readonly MediaInfo PleaseRecordYourMessage;
+        public readonly MediaInfo AskFollowUpQuestion;
     }
 }

@@ -26,6 +26,15 @@ namespace CallingBotSample.AdaptiveCards
         }
 
         /// <inheritdoc />
+        public Attachment CreateInitiateCallCard()
+        {
+            var template = GetCardTemplate("InitiateCallCard.json");
+
+            var serializedJson = template.Expand(new { });
+            return CreateAttachment(serializedJson);
+        }
+
+        /// <inheritdoc />
         public Attachment CreateIncidentCard()
         {
             var template = GetCardTemplate("CreateIncidentCard.json");

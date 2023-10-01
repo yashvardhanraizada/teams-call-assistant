@@ -143,7 +143,6 @@ namespace CallingBotSample.Services.MicrosoftGraph
         public Task<RecordOperation> Record(
             string id,
             MediaInfo mediaPrompt,
-            int maxRecordDurationInSeconds = 10,
             IEnumerable<string>? stopTones = null)
         {
             if (stopTones == null)
@@ -161,9 +160,9 @@ namespace CallingBotSample.Services.MicrosoftGraph
                     CreatePromptsFromMediaInfos(new List<MediaInfo>() { mediaPrompt }),
                     bargeInAllowed: null,
                     initialSilenceTimeoutInSeconds: null,
-                    maxSilenceTimeoutInSeconds: null,
-                    maxRecordDurationInSeconds,
-                    playBeep: null,
+                    maxSilenceTimeoutInSeconds: 2,
+                    maxRecordDurationInSeconds: null,
+                    playBeep: false,
                     stopTones,
                     clientContext: id)
                 .Request()
