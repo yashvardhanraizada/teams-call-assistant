@@ -2,7 +2,7 @@
   "$schema": "https://developer.microsoft.com/en-us/json-schemas/teams/v1.14/MicrosoftTeams.schema.json",
   "version": "1.0.4",
   "manifestVersion": "1.14",
-  "id": "b40c861a-3d70-4093-96ec-cbb12566c28f",
+  "id": "",
   "packageName": "com.acs.sample",
   "developer": {
     "name": "The Turing Tribe",
@@ -25,7 +25,7 @@
   "accentColor": "#FFFFFF",
   "bots": [
     {
-      "botId": "b40c861a-3d70-4093-96ec-cbb12566c28f",
+      "botId": "",
       "scopes": [ "personal", "team", "groupchat" ],
       "commandLists": [
         {
@@ -45,9 +45,9 @@
     }
   ],
   "permissions": [ "identity", "messageTeamMembers" ],
-  "validDomains": [ "https://8a04-2404-f801-8028-1-74f9-9ee1-98c5-e15b.ngrok-free.app" ],
+  "validDomains": [ "" ],
   "webApplicationInfo": {
-    "id": "b40c861a-3d70-4093-96ec-cbb12566c28f",
+    "id": "",
     "resource": "https://RscString"
   }
 }
